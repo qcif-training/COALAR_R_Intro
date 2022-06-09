@@ -151,6 +151,8 @@ Now we have a good directory structure we will now place/save the data file in t
 > 2. Make sure it's saved under the name `gapminder_data.csv`
 > 3. Save the file in the `data/` folder within your project.
 >
+> Use the same process to download and save a smaller test dataset: `feline_data.csv` from [here](https://bit.ly/qcif_feline_data)
+>
 > We will load and inspect these data later.
 {: .challenge}
 
