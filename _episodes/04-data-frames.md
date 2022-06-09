@@ -5,6 +5,12 @@ title: "Exploring Data Frames"
 teaching: 20
 exercises: 10
 questions:
+- "How do I work with larger datasets?"
+objectives:
+- "Understand what a `factor` is."
+- "Convert a `factor` to a `character` vector and vice versa."
+- "Display basic properties of data frames including size and class of the columns, names, and first few rows."
+keypoints:
 - "Use `str()`, `summary()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()`, and `typeof()` to understand the structure of a data frame."
 - "Read in a csv file using `read.csv()`."
 - "Understand what `length()` of a data frame represents."
