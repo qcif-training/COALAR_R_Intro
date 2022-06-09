@@ -36,9 +36,8 @@ R and RStudio. We will begin with raw data, perform exploratory analyses, and le
 how to plot results graphically. This example starts with a dataset from
 [gapminder.org](https://www.gapminder.org) containing population information for many
 countries through time. Can you read the data into R? Can you plot the population for
-Senegal? Can you calculate the average income for countries on the continent of Asia?
-By the end of these lessons you will be able to do things like plot the populations
-for all of these countries in under a minute!
+Senegal? By the end of these lessons you will be able to do things like plot the 
+populations for all of these countries in under a minute!
 
 ## Before Starting The Workshop
 
@@ -438,7 +437,7 @@ We can also do comparisons in R:
 >
 > Computers may only represent decimal numbers with a
 > certain degree of precision, so two numbers which look
-> the same when printed out by R, may actually have
+> the same when printed out by R may actually have
 > different underlying representations and therefore be
 > different by a small margin of error (called Machine
 > numeric tolerance).
