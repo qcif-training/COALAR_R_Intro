@@ -89,7 +89,7 @@ We can do other operations on the columns:
 
 
 ~~~
-## Say we discovered that the scale weighs two Kg light:
+## Say we discovered that the scale weighs two kg light:
 cats$weight + 2
 ~~~
 {: .language-r}
@@ -234,6 +234,15 @@ No matter how
 complicated our analyses become, all data in R is interpreted as one of these
 basic data types.
 
+The `cats` data we are working with is something called a *data frame*. Data frames
+are one of the most common and versatile types of *data structures* we will work with in R. 
+When R reads a csv file, it reads it in as a *data frame*. Thus, when we loaded the `cats`
+csv file, it is stored as a data frame. We can check this by using the function `class()`.
+
+```{r}
+class(cats)
+```
+
 ~~~
 [1] "data.frame"
 ~~~
@@ -241,7 +250,7 @@ basic data types.
 *Data frames* are composed of rows and columns, where each column has the 
 same number of rows. Different columns in a data frame can be made up of different 
 data types (this is what makes them so versatile), but everything in a given
-column needs to be the same type (e.g., vector, factor, or list).
+column must be the same type (e.g., vector, factor, or list).
 
 
 ## Vectors and Type Coercion
