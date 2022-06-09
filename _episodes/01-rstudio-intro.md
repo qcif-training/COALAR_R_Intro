@@ -630,7 +630,7 @@ Packages can be installed and updated from the Package tab with the Install and 
 > ~~~
 > {: .language-r}
 >
-> > ## Solution to challenge 2
+> > ## Solution to challenge 1
 > >
 > > 
 > > ~~~
@@ -670,7 +670,7 @@ Packages can be installed and updated from the Package tab with the Install and 
 > Run the code from the previous challenge, and write a command to
 > compare mass to age. Is mass larger than age?
 >
-> > ## Solution to challenge 3
+> > ## Solution to challenge 2
 > >
 > > One way of answering this question in R is to use the `>` to set up the following:
 > > 
@@ -690,11 +690,11 @@ Packages can be installed and updated from the Package tab with the Install and 
 {: .challenge}
 
 
-> ## Challenge 
+> ## Challenge 3
 >
 > Install the  `ggplot2` package
 >
-> > ## Solution to challenge 5
+> > ## Solution to challenge 3
 > >
 > > We can use the `install.packages()` command to install required packages.
 > > 
