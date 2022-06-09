@@ -239,9 +239,10 @@ are one of the most common and versatile types of *data structures* we will work
 When R reads a csv file, it reads it in as a *data frame*. Thus, when we loaded the `cats`
 csv file, it is stored as a data frame. We can check this by using the function `class()`.
 
-```{r}
+~~~
 class(cats)
-```
+~~~
+{: .language-r}
 
 ~~~
 [1] "data.frame"
