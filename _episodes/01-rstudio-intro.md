@@ -7,7 +7,6 @@ exercises: 10
 questions:
 - "How to find your way around RStudio?"
 - "How to interact with R?"
-- "How to manage your environment?"
 - "How to install packages?"
 objectives:
 - "Describe the purpose and use of each pane in the RStudio IDE"
@@ -22,8 +21,6 @@ keypoints:
 - "Use RStudio to write and run R programs."
 - "R has the usual arithmetic operators and mathematical functions."
 - "Use `<-` to assign values to variables."
-- "Use `ls()` to list the variables in a program."
-- "Use `rm()` to delete objects in a program."
 - "Use `install.packages()` to install packages (libraries)."
 source: Rmd
 ---
