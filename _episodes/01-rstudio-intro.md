@@ -543,51 +543,6 @@ But this is much less common among R users.  The most important thing is to
 where it is less confusing to use `<-` than `=`, and it is the most common
 symbol used in the community. So the recommendation is to use `<-`.
 
-> ## Challenge 1
->
-> Which of the following are valid R variable names?
-> 
-> ~~~
-> min_height
-> max.height
-> _age
-> .mass
-> MaxLength
-> min-length
-> 2widths
-> celsius2kelvin
-> ~~~
-> {: .language-r}
->
-> > ## Solution to challenge 1
-> >
-> > The following can be used as R variables:
-> > 
-> > ~~~
-> > min_height
-> > max.height
-> > MaxLength
-> > celsius2kelvin
-> > ~~~
-> > {: .language-r}
-> >
-> > The following creates a hidden variable:
-> > 
-> > ~~~
-> > .mass
-> > ~~~
-> > {: .language-r}
-> >
-> > The following will not be able to be used to create a variable
-> > 
-> > ~~~
-> > _age
-> > min-length
-> > 2widths
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
 
 ## Vectorization
 
@@ -642,157 +597,6 @@ This is incredibly powerful; we will discuss this further in an
 upcoming lesson.
 
 
-## Managing your environment
-
-There are a few useful commands you can use to interact with the R session.
-
-`ls` will list all of the variables and functions stored in the global environment
-(your working R session):
-
-
-~~~
-ls()
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] "args"    "dest_md" "op"      "src_rmd" "x"       "y"      
-~~~
-{: .output}
-
-> ## Tip: hidden objects
->
-> Like in the shell, `ls` will hide any variables or functions starting
-> with a "." by default. To list all objects, type `ls(all.names=TRUE)`
-> instead
->
-{: .callout}
-
-Note here that we didn't give any arguments to `ls`, but we still
-needed to give the parentheses to tell R to call the function.
-
-If we type `ls` by itself, R prints a bunch of code instead of a listing of objects.
-
-
-~~~
-ls
-~~~
-{: .language-r}
-
-
-
-~~~
-function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
-    pattern, sorted = TRUE) 
-{
-    if (!missing(name)) {
-        pos <- tryCatch(name, error = function(e) e)
-        if (inherits(pos, "error")) {
-            name <- substitute(name)
-            if (!is.character(name)) 
-                name <- deparse(name)
-            warning(gettextf("%s converted to character string", 
-                sQuote(name)), domain = NA)
-            pos <- name
-        }
-    }
-    all.names <- .Internal(ls(envir, all.names, sorted))
-    if (!missing(pattern)) {
-        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
-            ll != length(grep("]", pattern, fixed = TRUE))) {
-            if (pattern == "[") {
-                pattern <- "\\["
-                warning("replaced regular expression pattern '[' by  '\\\\['")
-            }
-            else if (length(grep("[^\\\\]\\[<-", pattern))) {
-                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
-                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
-            }
-        }
-        grep(pattern, all.names, value = TRUE)
-    }
-    else all.names
-}
-<bytecode: 0x55d256e1af08>
-<environment: namespace:base>
-~~~
-{: .output}
-
-What's going on here?
-
-Like everything in R, `ls` is the name of an object, and entering the name of
-an object by itself prints the contents of the object. The object `x` that we
-created earlier contains 1, 2, 3, 4, 5:
-
-
-~~~
-x
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 1 2 3 4 5
-~~~
-{: .output}
-
-The object `ls` contains the R code that makes the `ls` function work! We'll talk
-more about how functions work and start writing our own later.
-
-You can use `rm` to delete objects you no longer need:
-
-
-~~~
-rm(x)
-~~~
-{: .language-r}
-
-If you have lots of things in your environment and want to delete all of them,
-you can pass the results of `ls` to the `rm` function:
-
-
-~~~
-rm(list = ls())
-~~~
-{: .language-r}
-
-In this case we've combined the two. Like the order of operations, anything
-inside the innermost parentheses is evaluated first, and so on.
-
-In this case we've specified that the results of `ls` should be used for the
-`list` argument in `rm`. When assigning values to arguments by name, you *must*
-use the `=` operator!!
-
-If instead we use `<-`, there will be unintended side effects, or you may get an error message:
-
-
-~~~
-rm(list <- ls())
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in rm(list <- ls()): ... must contain names or character strings
-~~~
-{: .error}
-
-> ## Tip: Warnings vs. Errors
->
-> Pay attention when R does something unexpected! Errors, like above,
-> are thrown when R cannot proceed with a calculation. Warnings on the
-> other hand usually mean that the function has run, but it probably
-> hasn't worked as expected.
->
-> In both cases, the message that R prints out usually give you clues
-> how to fix a problem.
->
-{: .callout}
-
 ## R Packages
 
 It is possible to add functions to R by writing a package, or by
@@ -812,7 +616,7 @@ Packages can also be viewed, loaded, and detached in the Packages tab of the low
 
 Packages can be installed and updated from the Package tab with the Install and Update buttons at the top of the tab.
 
-> ## Challenge 2
+> ## Challenge 1
 >
 > What will be the value of each variable  after each
 > statement in the following program?
@@ -861,7 +665,7 @@ Packages can be installed and updated from the Package tab with the Install and 
 {: .challenge}
 
 
-> ## Challenge 3
+> ## Challenge 2
 >
 > Run the code from the previous challenge, and write a command to
 > compare mass to age. Is mass larger than age?
@@ -886,42 +690,16 @@ Packages can be installed and updated from the Package tab with the Install and 
 {: .challenge}
 
 
-> ## Challenge 4
+> ## Challenge 
 >
-> Clean up your working environment by deleting the mass and age
-> variables.
->
-> > ## Solution to challenge 4
-> >
-> > We can use the `rm` command to accomplish this task
-> > 
-> > ~~~
-> > rm(age, mass)
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
-
-
-> ## Challenge 5
->
-> Install the following packages: `ggplot2`, `plyr`, `gapminder`
+> Install the  `ggplot2` package
 >
 > > ## Solution to challenge 5
 > >
-> > We can use the `install.packages()` command to install the required packages.
+> > We can use the `install.packages()` command to install required packages.
 > > 
 > > ~~~
 > > install.packages("ggplot2")
-> > install.packages("plyr")
-> > install.packages("gapminder")
-> > ~~~
-> > {: .language-r}
-> >
-> > An alternate solution, to install multiple packages with a single `install.packages()` command is:
-> > 
-> > ~~~
-> > install.packages(c("ggplot2", "plyr", "gapminder"))
 > > ~~~
 > > {: .language-r}
 > {: .solution}
