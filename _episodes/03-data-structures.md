@@ -23,13 +23,13 @@ source: Rmd
 
 One of R's most powerful features is its ability to deal with tabular data -
 such as you may already have in a spreadsheet or a CSV file. Let's start by
-working with a toy dataset called `feline-data.csv` which we downloaded 
+working with a toy dataset called `feline_data.csv` which we downloaded 
 earlier:
 
 We can load this into R via the following:
 
 ~~~
-cats <- read.csv(file = "data/feline-data.csv", stringsAsFactors = TRUE)
+cats <- read.csv(file = "data/feline_data.csv", stringsAsFactors = TRUE)
 cats
 ~~~
 {: .language-r}
@@ -762,7 +762,7 @@ typeof(CATegories)
 > >
 > > 
 > > ~~~
-> > cats <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
+> > cats <- read.csv(file="data/feline_data.csv", stringsAsFactors=FALSE)
 > > str(cats$coat)
 > > ~~~
 > > {: .language-r}
@@ -772,7 +772,7 @@ typeof(CATegories)
 > >
 > > 
 > > ~~~
-> > cats <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
+> > cats <- read.csv(file="data/feline_data.csv", colClasses=c(NA, NA, "character"))
 > > str(cats$coat)
 > > ~~~
 > > {: .language-r}
